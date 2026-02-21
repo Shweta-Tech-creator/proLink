@@ -17,7 +17,7 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-sm">
-              Connecting skilled trade professionals with local opportunities. 
+              Connecting skilled trade professionals with local opportunities.
               Built for the modern workforce, powered by trust.
             </p>
             <div className="flex gap-6">
@@ -63,7 +63,7 @@ export const Footer = () => {
 
           <div className="lg:col-span-4">
             <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mb-12">Newsletter</h4>
-            <p className="text-lg text-slate-500 font-medium mb-10">Get the latest job alerts and industry news delivered to your inbox.</p>
+            <p className="text-lg text-slate-500 font-medium mb-10">Get the latest local service requests and industry updates delivered to your inbox.</p>
             <div className="relative">
               <input
                 type="email"
