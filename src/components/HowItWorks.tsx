@@ -5,20 +5,20 @@ import { Search, MessageSquare, CheckCircle, ArrowRight } from 'lucide-react';
 const steps = [
   {
     icon: <Search className="w-8 h-8" />,
-    title: 'Search for Services',
-    description: 'Browse through our list of verified professionals or post a specific job requirement.',
+    title: 'Browse Local Jobs',
+    description: 'Find verified service requests from homeowners in your specific area and neighborhood.',
     color: 'bg-blue-50 text-blue-600',
   },
   {
     icon: <MessageSquare className="w-8 h-8" />,
-    title: 'Get Free Quotes',
-    description: 'Receive multiple competitive quotes from local experts within minutes of posting.',
+    title: 'Send Your Quotes',
+    description: 'Pitch your services and provide estimates for jobs that match your skills and schedule.',
     color: 'bg-emerald-50 text-emerald-600',
   },
   {
     icon: <CheckCircle className="w-8 h-8" />,
-    title: 'Hire & Get it Done',
-    description: 'Choose the best pro for your needs, schedule the work, and pay securely through ProLink.',
+    title: 'Earn & Grow',
+    description: 'Complete the work, receive secure payments, and build your professional reputation.',
     color: 'bg-amber-50 text-amber-600',
   },
 ];

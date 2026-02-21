@@ -34,8 +34,8 @@ export const Services = () => {
               viewport={{ once: true }}
               className="text-7xl md:text-9xl font-display font-extrabold tracking-tighter leading-[0.82] text-white uppercase"
             >
-              Expertise <br />
-              <span className="text-slate-700">on demand.</span>
+              Requests <br />
+              <span className="text-slate-700">for you.</span>
             </motion.h2>
           </div>
           <div className="lg:col-span-4 flex items-end">
@@ -45,7 +45,7 @@ export const Services = () => {
               viewport={{ once: true }}
               className="text-xl text-slate-500 font-medium leading-relaxed mb-4"
             >
-              We've hand-picked the finest local talent to ensure your projects are handled with precision and care.
+              Browse categorized service requests from local homeowners looking for your specific skills and expertise.
             </motion.p>
           </div>
         </div>
@@ -70,8 +70,8 @@ export const Services = () => {
                 <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center text-white mb-3 shadow-2xl">
                   <Droplets size={20} />
                 </div>
-                <h3 className="text-2xl font-display font-extrabold text-white mb-1">Master Plumbing</h3>
-                <p className="text-slate-400 text-sm font-medium max-w-xs">From emergency repairs to full system installations.</p>
+                <h3 className="text-2xl font-display font-extrabold text-white mb-1">Plumbing Work</h3>
+                <p className="text-slate-400 text-sm font-medium max-w-xs">Access daily high-value plumbing requests in Dadar, Colaba, and beyond.</p>
               </div>
               <div className="text-right">
                 <p className="text-2xl font-display font-extrabold text-white mb-0.5">1.2k+</p>
@@ -103,8 +103,8 @@ export const Services = () => {
                   <div className={`w-10 h-10 ${service.color} text-white rounded-lg flex items-center justify-center mb-4 shadow-xl group-hover:rotate-12 transition-transform`}>
                     {React.cloneElement(service.icon as React.ReactElement, { size: 20 })}
                   </div>
-                  <h3 className="text-xl font-display font-extrabold text-white mb-1">{service.name}</h3>
-                  <p className="text-slate-200 text-xs font-medium leading-relaxed">High-quality {service.name.toLowerCase()} services tailored to your needs.</p>
+                  <h3 className="text-xl font-display font-extrabold text-white mb-1">{service.name} Jobs</h3>
+                  <p className="text-slate-200 text-xs font-medium leading-relaxed">Find verified {service.name.toLowerCase()} work and start earning today.</p>
                 </div>
                 <div className="pt-6 flex justify-between items-center">
                   <p className="text-[8px] font-black text-white uppercase tracking-widest">{service.count}</p>

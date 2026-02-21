@@ -61,7 +61,7 @@ export const Hero = () => {
             className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-brand-primary text-[10px] font-black uppercase tracking-[0.5em] mb-12 backdrop-blur-md"
           >
             <Sparkles size={14} />
-            <span>The Future of Local Services</span>
+            <span>Empowering Local Experts</span>
           </motion.div>
 
           <motion.h1
@@ -70,8 +70,8 @@ export const Hero = () => {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="text-7xl md:text-9xl font-display font-extrabold text-white leading-[1] mb-8 tracking-tighter uppercase"
           >
-            Fix <span className="text-gradient">Better.</span> <br />
-            Live <span className="text-slate-600">Smarter.</span>
+            Find <span className="text-gradient">Work.</span> <br />
+            Earn <span className="text-slate-600">More.</span>
           </motion.h1>
 
           <motion.p
@@ -80,8 +80,8 @@ export const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-base md:text-lg text-slate-400 mb-10 leading-relaxed font-medium max-w-xl"
           >
-            Connect with the most trusted local electricians, plumbers, and painters.
-            Verified, skilled, and ready to handle your home maintenance.
+            The #1 platform for local electricians, plumbers, and painters to find
+            verified jobs in their neighborhood. Start your professional journey today.
           </motion.p>
 
           {/* Massive Search Experience */}
@@ -110,7 +110,7 @@ export const Hero = () => {
                 />
               </div>
               <button className="w-full md:w-auto px-8 py-4 bg-brand-primary text-white rounded-[1rem] font-black text-[9px] uppercase tracking-[0.3em] hover:bg-brand-secondary transition-all active:scale-95 shadow-2xl shadow-brand-primary/20">
-                Find Professionals
+                Search Jobs
               </button>
             </div>
           </motion.div>

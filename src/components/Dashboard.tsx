@@ -39,7 +39,7 @@ export const Dashboard = () => {
   });
 
   const stats = [
-    { label: 'Active Projects', value: '12', icon: <Briefcase size={20} />, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+    { label: 'Active Jobs', value: '12', icon: <Briefcase size={20} />, color: 'text-indigo-600', bg: 'bg-indigo-50' },
     { label: 'Completed', value: '148', icon: <CheckCircle2 size={20} />, color: 'text-violet-600', bg: 'bg-violet-50' },
     { label: 'Total Income', value: '₹42,500', icon: <TrendingUp size={20} />, color: 'text-brand-primary', bg: 'bg-indigo-50' },
   ];
