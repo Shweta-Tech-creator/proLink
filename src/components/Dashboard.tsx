@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  LayoutDashboard, 
-  Briefcase, 
-  User, 
-  Settings, 
-  Bell, 
-  Search, 
-  Filter, 
-  MapPin, 
-  Clock, 
+import {
+  LayoutDashboard,
+  Briefcase,
+  User,
+  Settings,
+  Bell,
+  Search,
+  Filter,
+  MapPin,
+  Clock,
   DollarSign,
   ChevronRight,
   LogOut,
@@ -33,15 +33,15 @@ export const Dashboard = () => {
 
   const filteredJobs = DUMMY_JOBS.filter(job => {
     const matchesTab = activeTab === 'All' || job.profession === activeTab;
-    const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                         job.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      job.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesTab && matchesSearch;
   });
 
   const stats = [
-    { label: 'Active Jobs', value: '12', icon: <Briefcase size={20} />, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+    { label: 'Active Projects', value: '12', icon: <Briefcase size={20} />, color: 'text-indigo-600', bg: 'bg-indigo-50' },
     { label: 'Completed', value: '148', icon: <CheckCircle2 size={20} />, color: 'text-violet-600', bg: 'bg-violet-50' },
-    { label: 'Earnings', value: '₹4,25,000', icon: <TrendingUp size={20} />, color: 'text-brand-primary', bg: 'bg-indigo-50' },
+    { label: 'Total Income', value: '₹42,500', icon: <TrendingUp size={20} />, color: 'text-brand-primary', bg: 'bg-indigo-50' },
   ];
 
   const menuItems = [
@@ -77,8 +77,8 @@ export const Dashboard = () => {
               onClick={() => setCurrentView(item.name)}
               className={cn(
                 "w-full flex items-center gap-3 px-5 py-3 rounded-xl font-bold text-[12px] transition-all duration-300",
-                currentView === item.name 
-                  ? "bg-white text-slate-900 shadow-xl shadow-black/5 border border-slate-100" 
+                currentView === item.name
+                  ? "bg-white text-slate-900 shadow-xl shadow-black/5 border border-slate-100"
                   : "text-slate-400 hover:bg-white/50 hover:text-slate-900"
               )}
             >
@@ -126,7 +126,7 @@ export const Dashboard = () => {
                 {currentView === 'Settings' && "Manage your account preferences and security."}
               </p>
             </motion.div>
-            
+
             <div className="flex items-center gap-6">
               <button className="w-12 h-12 bg-white border border-slate-200/60 rounded-2xl text-slate-500 hover:text-brand-primary hover:border-brand-primary/20 transition-all relative shadow-sm flex items-center justify-center">
                 <Bell size={20} />
@@ -183,7 +183,7 @@ export const Dashboard = () => {
                 <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden">
                   <div className="p-8 lg:p-10 border-b border-slate-100/60">
                     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-                      <h2 className="text-2xl font-display font-extrabold text-slate-900 tracking-tight">Job Marketplace</h2>
+                      <h2 className="text-2xl font-display font-extrabold text-slate-900 tracking-tight">Available Service Requests</h2>
                       <div className="flex flex-wrap items-center gap-4">
                         <div className="relative flex-1 min-w-[300px]">
                           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
@@ -210,8 +210,8 @@ export const Dashboard = () => {
                           onClick={() => setActiveTab(tab as any)}
                           className={cn(
                             "px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all",
-                            activeTab === tab 
-                              ? "bg-slate-900 text-white shadow-xl shadow-slate-900/20" 
+                            activeTab === tab
+                              ? "bg-slate-900 text-white shadow-xl shadow-slate-900/20"
                               : "bg-slate-50 text-slate-500 hover:bg-slate-100"
                           )}
                         >
@@ -246,7 +246,7 @@ export const Dashboard = () => {
                             </div>
                             <h4 className="text-xl font-display font-extrabold text-slate-900 mb-3 group-hover:text-brand-primary transition-colors leading-tight">{job.title}</h4>
                             <p className="text-sm text-slate-500 mb-8 line-clamp-2 leading-relaxed font-medium">{job.description}</p>
-                            
+
                             <div className="space-y-4 mb-8">
                               <div className="flex items-center gap-3 text-sm text-slate-600 font-bold">
                                 <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center text-slate-400">
@@ -262,7 +262,7 @@ export const Dashboard = () => {
                               </div>
                             </div>
 
-                            <button 
+                            <button
                               onClick={() => setSelectedJob(job)}
                               className="w-full py-4 bg-slate-50 text-slate-900 rounded-2xl font-black text-xs uppercase tracking-widest group-hover:bg-brand-primary group-hover:text-white group-hover:shadow-lg group-hover:shadow-brand-primary/20 transition-all flex items-center justify-center gap-2"
                             >
@@ -279,7 +279,7 @@ export const Dashboard = () => {
                         <div className="w-24 h-24 bg-slate-50 rounded-[2rem] flex items-center justify-center mx-auto mb-8 text-slate-200">
                           <Search size={48} />
                         </div>
-                        <h3 className="text-2xl font-display font-extrabold text-slate-900 mb-2">No jobs found</h3>
+                        <h3 className="text-2xl font-display font-extrabold text-slate-900 mb-2">No requests found</h3>
                         <p className="text-slate-500 font-medium">Try adjusting your filters or search query.</p>
                       </div>
                     )}
@@ -310,7 +310,7 @@ export const Dashboard = () => {
                         <Settings size={20} />
                       </button>
                     </div>
-                    
+
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                       <div>
                         <h2 className="text-4xl font-display font-extrabold text-slate-900 mb-2">{displayName}</h2>
@@ -344,9 +344,9 @@ export const Dashboard = () => {
                       <div>
                         <h3 className="text-xl font-display font-extrabold text-slate-900 mb-4">About Me</h3>
                         <p className="text-slate-600 leading-relaxed font-medium">
-                          Licensed master plumber with over 10 years of experience in residential and commercial plumbing. 
-                          I specialize in complex installations, emergency repairs, and sustainable water solutions. 
-                          My goal is to provide high-quality service with transparent pricing.
+                          Licensed master professional with over 10 years of experience in residential and commercial services.
+                          I specialize in high-quality work, emergency repairs, and sustainable solutions.
+                          My goal is to provide reliable service with transparent pricing.
                         </p>
                       </div>
                       <div>
@@ -379,18 +379,18 @@ export const Dashboard = () => {
                     <div className="space-y-6">
                       <div className="flex flex-col gap-2">
                         <label className="text-xs font-black text-slate-500 uppercase tracking-widest">Email Address</label>
-                        <input 
-                          type="email" 
-                          defaultValue={displayEmail} 
-                          className="w-full px-6 py-4 bg-slate-50 border border-slate-200/60 rounded-2xl focus:outline-none focus:border-brand-primary font-bold text-slate-900" 
+                        <input
+                          type="email"
+                          defaultValue={displayEmail}
+                          className="w-full px-6 py-4 bg-slate-50 border border-slate-200/60 rounded-2xl focus:outline-none focus:border-brand-primary font-bold text-slate-900"
                         />
                       </div>
                       <div className="flex flex-col gap-2">
                         <label className="text-xs font-black text-slate-500 uppercase tracking-widest">Phone Number</label>
-                        <input 
-                          type="tel" 
-                          defaultValue={displayPhone} 
-                          className="w-full px-6 py-4 bg-slate-50 border border-slate-200/60 rounded-2xl focus:outline-none focus:border-brand-primary font-bold text-slate-900" 
+                        <input
+                          type="tel"
+                          defaultValue={displayPhone}
+                          className="w-full px-6 py-4 bg-slate-50 border border-slate-200/60 rounded-2xl focus:outline-none focus:border-brand-primary font-bold text-slate-900"
                         />
                       </div>
                     </div>
@@ -448,7 +448,7 @@ export const Dashboard = () => {
             >
               <div className="p-8 lg:p-10">
                 <div className="flex items-center justify-between mb-12">
-                  <button 
+                  <button
                     onClick={() => setSelectedJob(null)}
                     className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all"
                   >
@@ -475,14 +475,14 @@ export const Dashboard = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-display font-extrabold text-slate-900 mb-4">Job Description</h3>
+                    <h3 className="text-xl font-display font-extrabold text-slate-900 mb-4">Request Details</h3>
                     <p className="text-slate-600 leading-relaxed font-medium">{selectedJob.description}</p>
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-xl font-display font-extrabold text-slate-900 mb-4">Requirements</h3>
+                    <h3 className="text-xl font-display font-extrabold text-slate-900 mb-4">Specifics</h3>
                     <ul className="space-y-3">
-                      {['Must have own tools', 'Available on weekends', '5+ years experience preferred'].map((req, i) => (
+                      {['Professional tools required', 'Travel within 10km only', 'Material costs extra'].map((req, i) => (
                         <li key={i} className="flex items-center gap-3 text-slate-600 font-medium">
                           <div className="w-2 h-2 rounded-full bg-brand-primary" />
                           {req}
@@ -493,10 +493,10 @@ export const Dashboard = () => {
 
                   <div className="pt-10 border-t border-slate-100">
                     <button className="w-full py-5 bg-brand-primary text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-2xl shadow-brand-primary/20 hover:bg-brand-secondary transition-all active:scale-95">
-                      Apply for this Job
+                      Accept this Request
                     </button>
                     <p className="text-center mt-6 text-xs text-slate-400 font-bold">
-                      By applying, you agree to our Terms of Service
+                      By accepting, you agree to our Terms of Service
                     </p>
                   </div>
                 </div>

@@ -70,8 +70,8 @@ export const Hero = () => {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="text-7xl md:text-9xl font-display font-extrabold text-white leading-[1] mb-8 tracking-tighter uppercase"
           >
-            Hire <span className="text-gradient">Better.</span> <br />
-            Live <span className="text-slate-600">Easier.</span>
+            Fix <span className="text-gradient">Better.</span> <br />
+            Live <span className="text-slate-600">Smarter.</span>
           </motion.h1>
 
           <motion.p
@@ -80,8 +80,8 @@ export const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-base md:text-lg text-slate-400 mb-10 leading-relaxed font-medium max-w-xl"
           >
-            Connect with the world's most skilled local professionals.
-            Verified, trusted, and ready to transform your space.
+            Connect with the most trusted local electricians, plumbers, and painters.
+            Verified, skilled, and ready to handle your home maintenance.
           </motion.p>
 
           {/* Massive Search Experience */}

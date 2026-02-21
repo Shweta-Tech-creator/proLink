@@ -6,7 +6,7 @@ const values = [
   {
     icon: <Target className="text-blue-600" />,
     title: 'Our Mission',
-    description: 'To empower local tradespeople by providing them with a platform that values their skills and connects them with meaningful work.',
+    description: 'To empower local electricians, plumbers, and painters by providing them with a platform that values their skills and connects them with homeowners across Maharashtra.',
   },
   {
     icon: <Users className="text-emerald-600" />,

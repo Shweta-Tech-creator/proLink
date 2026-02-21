@@ -7,7 +7,7 @@ const services = [
   { name: 'Electrical', icon: <Zap />, count: '85+ Pros', color: 'bg-amber-500', seed: 'indian-electrician' },
   { name: 'Carpentry', icon: <Hammer />, count: '64+ Pros', color: 'bg-orange-600', seed: 'indian-carpenter' },
   { name: 'Painting', icon: <Paintbrush />, count: '42+ Pros', color: 'bg-emerald-500', seed: 'indian-painter' },
-  { name: 'HVAC', icon: <Wind />, count: '38+ Pros', color: 'bg-cyan-500', seed: 'indian-hvac' },
+  { name: 'Masonry', icon: <Hammer />, count: '38+ Pros', color: 'bg-cyan-500', seed: 'indian-mason' },
   { name: 'Gardening', icon: <Shovel />, count: '55+ Pros', color: 'bg-green-600', seed: 'indian-gardener' },
   { name: 'Handyman', icon: <Wrench />, count: '92+ Pros', color: 'bg-slate-700', seed: 'indian-handyman' },
   { name: 'Security', icon: <ShieldCheck />, count: '24+ Pros', color: 'bg-indigo-600', seed: 'indian-security' },
@@ -39,7 +39,7 @@ export const Services = () => {
             </motion.h2>
           </div>
           <div className="lg:col-span-4 flex items-end">
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -58,9 +58,9 @@ export const Services = () => {
             viewport={{ once: true }}
             className="lg:col-span-2 group relative h-[450px] rounded-[2rem] overflow-hidden border border-white/5"
           >
-            <img 
-              src="https://picsum.photos/seed/indian-plumber-working/1200/800" 
-              alt="Plumbing" 
+            <img
+              src="https://picsum.photos/seed/indian-plumber-working/1200/800"
+              alt="Plumbing"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
               referrerPolicy="no-referrer"
             />
@@ -90,14 +90,14 @@ export const Services = () => {
               transition={{ delay: index * 0.1 }}
               className="group relative h-[350px] rounded-[2rem] overflow-hidden border border-white/5 transition-all duration-500"
             >
-              <img 
-                src={`https://picsum.photos/seed/${service.seed}/800/1200`} 
-                alt={service.name} 
+              <img
+                src={`https://picsum.photos/seed/${service.seed}/800/1200`}
+                alt={service.name}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-              
+
               <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
                 <div>
                   <div className={`w-10 h-10 ${service.color} text-white rounded-lg flex items-center justify-center mb-4 shadow-xl group-hover:rotate-12 transition-transform`}>
@@ -122,7 +122,7 @@ export const Services = () => {
           {/* Gradient Masks for seamless fade */}
           <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-black to-transparent z-10" />
           <div className="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-black to-transparent z-10" />
-          
+
           <div className="flex items-center gap-32 animate-marquee whitespace-nowrap">
             {[
               { label: 'Jobs Completed', value: '15,000+' },
