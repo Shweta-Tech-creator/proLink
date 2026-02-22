@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Lock, User, Briefcase, MapPin, MessageSquare, ArrowRight, Loader2, Hammer } from 'lucide-react';
+import { Mail, Lock, User, Briefcase, MapPin, MessageSquare, ArrowRight, Loader2, Hammer, Phone } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChatbotOverlay } from './ChatbotOverlay';
 import { useUser } from '../contexts/UserContext';
@@ -22,15 +22,35 @@ export const AuthPage = ({ type }: { type: 'login' | 'register' }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
     setTimeout(() => {
       setIsLoading(false);
-      login({
-        name: formData.name || 'User',
-        email: formData.email,
-        phone: formData.phone,
-        profession: formData.profession,
-        location: formData.location
-      });
+
+      let loginData = { ...formData };
+      const savedAccounts = JSON.parse(localStorage.getItem('workindia_accounts') || '[]');
+
+      if (type === 'register') {
+        // Save new account to mock DB
+        const newAccounts = [...savedAccounts.filter((a: any) => a.email !== formData.email), loginData];
+        localStorage.setItem('workindia_accounts', JSON.stringify(newAccounts));
+      } else {
+        // Try to find existing account for login
+        const existingAccount = savedAccounts.find((a: any) => a.email === formData.email);
+        if (existingAccount) {
+          loginData = existingAccount;
+        } else {
+          // Derive basics from email for new logins
+          const derivedName = formData.email.split('@')[0].split(/[._]/).map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+          loginData = {
+            ...formData,
+            name: derivedName || 'Expert User',
+            profession: 'Service Professional',
+            phone: '+91 98765 43210'
+          };
+        }
+      }
+
+      login(loginData);
       navigate('/dashboard');
     }, 1500);
   };
@@ -45,15 +65,15 @@ export const AuthPage = ({ type }: { type: 'login' | 'register' }) => {
       {/* Left Side - Content/Image */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden items-center justify-center p-24">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={`https://picsum.photos/seed/prolink-auth-${type}/1200/1800`} 
-            alt="Auth Background" 
+          <img
+            src={`https://picsum.photos/seed/workindia-auth-${type}/1200/1800`}
+            alt="Auth Background"
             className="w-full h-full object-cover opacity-50"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent" />
         </div>
-        
+
         <div className="relative z-10 max-w-xl">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -66,21 +86,21 @@ export const AuthPage = ({ type }: { type: 'login' | 'register' }) => {
                 <Hammer size={32} />
               </div>
               <span className="text-4xl font-display font-extrabold tracking-tighter text-white">
-                Pro<span className="text-brand-primary">Link</span>
+                Work<span className="text-brand-primary">India</span>
               </span>
             </Link>
-            
+
             <h2 className="text-7xl font-display font-extrabold text-white leading-[0.85] tracking-tighter uppercase">
               {type === 'login' ? 'Welcome' : 'Join the'} <br />
               <span className="text-gradient">{type === 'login' ? 'Back.' : 'Elite.'}</span>
             </h2>
-            
+
             <p className="text-2xl text-slate-400 font-medium leading-relaxed">
-              {type === 'login' 
-                ? 'Access your professional dashboard and manage your projects with ease.' 
+              {type === 'login'
+                ? 'Access your professional dashboard and manage your projects with ease.'
                 : 'Connect with high-quality local jobs and grow your professional business.'}
             </p>
-            
+
             <div className="flex items-center gap-8 pt-12">
               <div className="flex -space-x-4">
                 {[1, 2, 3].map(i => (
@@ -109,7 +129,7 @@ export const AuthPage = ({ type }: { type: 'login' | 'register' }) => {
                 <Hammer size={20} />
               </div>
               <span className="text-xl font-display font-extrabold tracking-tighter text-white">
-                Pro<span className="text-brand-primary">Link</span>
+                Work<span className="text-brand-primary">India</span>
               </span>
             </Link>
           </div>
@@ -129,22 +149,24 @@ export const AuthPage = ({ type }: { type: 'login' | 'register' }) => {
               className="w-full mb-10 py-5 bg-white/5 text-white rounded-3xl font-black text-[10px] uppercase tracking-[0.4em] border border-white/10 hover:bg-white/10 transition-all flex items-center justify-center gap-3 group"
             >
               <MessageSquare size={18} className="group-hover:scale-110 transition-transform text-brand-primary" />
-              Fill with ProBot Assistant
+              Fill with WorkIndia Assistant
             </button>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="relative group">
-              <User className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-primary transition-colors" size={20} />
-              <input
-                type="text"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full pl-16 pr-8 py-5 bg-white/5 border border-white/10 rounded-[2rem] focus:outline-none focus:border-brand-primary transition-all text-white placeholder:text-slate-600 font-medium"
-                required
-              />
-            </div>
+            {type === 'register' && (
+              <div className="relative group">
+                <User className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-primary transition-colors" size={20} />
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full pl-16 pr-8 py-5 bg-white/5 border border-white/10 rounded-[2rem] focus:outline-none focus:border-brand-primary transition-all text-white placeholder:text-slate-600 font-medium"
+                  required
+                />
+              </div>
+            )}
 
             <div className="relative group">
               <Mail className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-primary transition-colors" size={20} />
@@ -158,16 +180,32 @@ export const AuthPage = ({ type }: { type: 'login' | 'register' }) => {
               />
             </div>
 
-            <div className="relative group">
-              <Briefcase className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-primary transition-colors" size={20} />
-              <input
-                type="text"
-                placeholder="Profession (e.g. Electrician, Plumber)"
-                value={formData.profession}
-                onChange={(e) => setFormData({ ...formData, profession: e.target.value })}
-                className="w-full pl-16 pr-8 py-5 bg-white/5 border border-white/10 rounded-[2rem] focus:outline-none focus:border-brand-primary transition-all text-white placeholder:text-slate-600 font-medium"
-              />
-            </div>
+            {type === 'register' && (
+              <div className="relative group">
+                <Phone className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-primary transition-colors" size={20} />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full pl-16 pr-8 py-5 bg-white/5 border border-white/10 rounded-[2rem] focus:outline-none focus:border-brand-primary transition-all text-white placeholder:text-slate-600 font-medium"
+                  required
+                />
+              </div>
+            )}
+
+            {type === 'register' && (
+              <div className="relative group">
+                <Briefcase className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-primary transition-colors" size={20} />
+                <input
+                  type="text"
+                  placeholder="Profession (e.g. Electrician, Plumber)"
+                  value={formData.profession}
+                  onChange={(e) => setFormData({ ...formData, profession: e.target.value })}
+                  className="w-full pl-16 pr-8 py-5 bg-white/5 border border-white/10 rounded-[2rem] focus:outline-none focus:border-brand-primary transition-all text-white placeholder:text-slate-600 font-medium"
+                />
+              </div>
+            )}
 
             <div className="relative group">
               <Lock className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-brand-primary transition-colors" size={20} />

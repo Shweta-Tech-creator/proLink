@@ -9,11 +9,11 @@ export const Footer = () => {
         <div className="grid lg:grid-cols-12 gap-20 mb-32">
           <div className="lg:col-span-4 space-y-12">
             <Link to="/" className="flex items-center gap-4 group">
-              <div className="w-14 h-14 bg-brand-primary rounded-2xl flex items-center justify-center text-white shadow-xl shadow-brand-primary/20 group-hover:rotate-12 transition-transform duration-500">
-                <Hammer size={32} />
+              <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center text-white shadow-xl shadow-brand-primary/20 group-hover:rotate-12 transition-transform duration-500">
+                <Hammer size={36} />
               </div>
-              <span className="text-4xl font-display font-extrabold tracking-tighter">
-                Pro<span className="text-brand-primary">Link</span>
+              <span className="text-5xl font-display font-extrabold tracking-tighter">
+                Work<span className="text-brand-primary">India</span>
               </span>
             </Link>
             <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-sm">
@@ -78,7 +78,7 @@ export const Footer = () => {
         </div>
 
         <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
-          <p className="text-slate-600 text-[10px] font-black uppercase tracking-[0.4em]">© 2026 ProLink Marketplace. All rights reserved.</p>
+          <p className="text-slate-600 text-[10px] font-black uppercase tracking-[0.4em]">© 2026 WorkIndia Marketplace. All rights reserved.</p>
           <div className="flex gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

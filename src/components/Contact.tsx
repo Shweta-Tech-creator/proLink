@@ -27,21 +27,21 @@ export const Contact = () => {
                 Let's <br />
                 <span className="text-slate-700">Talk.</span>
               </motion.h2>
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="text-xl text-slate-400 font-medium leading-relaxed max-w-md"
               >
-                Whether you're a homeowner looking for help or a professional 
+                Whether you're a homeowner looking for help or a professional
                 ready to grow, we're here to support you.
               </motion.p>
             </div>
 
             <div className="space-y-10">
               {[
-                { icon: <Mail />, title: 'Email', value: 'hello@prolink.in', color: 'group-hover:text-brand-primary' },
+                { icon: <Mail />, title: 'Email', value: 'hello@workindia.in', color: 'group-hover:text-brand-primary' },
                 { icon: <Phone />, title: 'Phone', value: '+91 98765 43210', color: 'group-hover:text-brand-accent' },
                 { icon: <MapPin />, title: 'Office', value: 'Mumbai, Maharashtra, India', color: 'group-hover:text-violet-400' },
               ].map((item, i) => (
@@ -72,7 +72,7 @@ export const Contact = () => {
             className="lg:col-span-7 glass-dark p-12 lg:p-20 rounded-[5rem] shadow-3xl border border-white/10 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-96 h-96 bg-brand-primary/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-[100px]" />
-            
+
             <form className="space-y-12 relative z-10">
               <div className="grid md:grid-cols-2 gap-12">
                 <div className="space-y-4">
@@ -92,7 +92,7 @@ export const Contact = () => {
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-4">
                 <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] ml-2">Message</label>
                 <textarea
@@ -101,7 +101,7 @@ export const Contact = () => {
                   className="w-full px-10 py-6 bg-white/5 border border-white/10 rounded-[2.5rem] focus:outline-none focus:border-brand-primary transition-all text-white placeholder:text-slate-700 font-medium resize-none"
                 ></textarea>
               </div>
-              
+
               <button className="w-full py-8 bg-brand-primary text-white rounded-[3rem] font-black text-[11px] uppercase tracking-[0.4em] shadow-2xl shadow-brand-primary/20 hover:bg-brand-secondary hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-center gap-4">
                 Send Message
                 <Send size={18} />

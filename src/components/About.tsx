@@ -16,14 +16,28 @@ const values = [
   {
     icon: <ShieldCheck className="text-amber-600" />,
     title: 'Trust & Safety',
-    description: 'Every professional on ProLink undergoes a rigorous verification process to ensure the highest standards of safety and quality.',
+    description: 'Every professional on WorkIndia undergoes a rigorous verification process to ensure the highest standards of safety and quality.',
   },
 ];
 
 export const About = () => {
   return (
-    <section className="py-32 bg-black overflow-hidden" id="about">
-      <div className="container mx-auto px-8 lg:px-12 max-w-[1800px]">
+    <section className="relative py-32 bg-black overflow-hidden" id="about">
+      {/* Cinematic Background Elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+        <motion.div
+          animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-[10%] -right-[10%] w-[40%] h-[40%] bg-brand-primary/10 rounded-full blur-[120px]"
+        />
+        <motion.div
+          animate={{ x: [0, -40, 0], y: [0, -20, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -bottom-[10%] -left-[10%] w-[50%] h-[50%] bg-brand-accent/5 rounded-full blur-[150px]"
+        />
+      </div>
+
+      <div className="container mx-auto px-8 lg:px-12 max-w-[1800px] relative z-10">
         <div className="grid lg:grid-cols-12 gap-24 items-center">
           <div className="lg:col-span-8 space-y-16">
             <div className="space-y-8">

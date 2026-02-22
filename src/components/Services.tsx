@@ -15,8 +15,22 @@ const services = [
 
 export const Services = () => {
   return (
-    <section className="py-32 bg-black" id="services">
-      <div className="container mx-auto px-8 lg:px-12 max-w-[1800px]">
+    <section className="relative py-32 bg-black overflow-hidden" id="services">
+      {/* Cinematic Background Elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+        <motion.div
+          animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.2, 0.1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[20%] right-[10%] w-[600px] h-[600px] bg-brand-primary/10 rounded-full blur-[150px]"
+        />
+        <motion.div
+          animate={{ scale: [1.3, 1, 1.3], opacity: [0.05, 0.1, 0.05] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-[20%] left-[10%] w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[130px]"
+        />
+      </div>
+
+      <div className="container mx-auto px-8 lg:px-12 max-w-[1800px] relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 mb-24">
           <div className="lg:col-span-8">
             <motion.div

@@ -15,7 +15,7 @@ interface ChatbotProps {
 
 export const ChatbotOverlay = ({ onComplete, onClose }: ChatbotProps) => {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'bot', text: "Hi! I'm ProBot. I'll help you register in seconds. What's your full name?" },
+    { role: 'bot', text: "Hi! I'm your WorkIndia Assistant. I'll help you register in seconds. What's your full name?" },
   ]);
   const [input, setInput] = useState('');
   const [step, setStep] = useState(0);
@@ -89,7 +89,7 @@ export const ChatbotOverlay = ({ onComplete, onClose }: ChatbotProps) => {
               <Bot size={28} />
             </div>
             <div>
-              <h3 className="text-xl font-display font-extrabold tracking-tight">ProBot Assistant</h3>
+              <h3 className="text-xl font-display font-extrabold tracking-tight">WorkIndia Assistant</h3>
               <p className="text-xs text-brand-primary/20 font-black uppercase tracking-widest bg-white/90 px-2 py-0.5 rounded mt-1">AI Powered</p>
             </div>
           </div>
@@ -108,11 +108,10 @@ export const ChatbotOverlay = ({ onComplete, onClose }: ChatbotProps) => {
               className={`flex ${msg.role === 'bot' ? 'justify-start' : 'justify-end'}`}
             >
               <div
-                className={`max-w-[85%] p-5 rounded-[2rem] text-sm font-medium shadow-sm ${
-                  msg.role === 'bot'
+                className={`max-w-[85%] p-5 rounded-[2rem] text-sm font-medium shadow-sm ${msg.role === 'bot'
                     ? 'bg-white text-slate-800 rounded-tl-none border border-slate-100'
                     : 'bg-brand-primary text-white rounded-tr-none shadow-lg shadow-brand-primary/20'
-                }`}
+                  }`}
               >
                 {msg.text}
               </div>

@@ -25,7 +25,7 @@ import { Link } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
 export const Dashboard = () => {
-  const { user } = useUser();
+  const { user, logout } = useUser();
   const [currentView, setCurrentView] = useState<'Dashboard' | 'Profile' | 'Settings'>('Dashboard');
   const [activeTab, setActiveTab] = useState<Profession | 'All'>('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -50,10 +50,10 @@ export const Dashboard = () => {
     { name: 'Settings', icon: <Settings size={20} /> },
   ] as const;
 
-  const displayName = user?.name || 'Alex Johnson';
-  const displayEmail = user?.email || 'alex.johnson@example.com';
+  const displayName = user?.name || 'WorkIndia Expert';
+  const displayEmail = user?.email || 'expert@workindia.in';
   const displayPhone = user?.phone || '+91 98765 43210';
-  const displayProfession = user?.profession || 'Pro Plumber';
+  const displayProfession = user?.profession || 'Service Professional';
 
   return (
     <div className="min-h-screen bg-[#FBFBFD] flex font-sans selection:bg-indigo-100 selection:text-indigo-900">
@@ -65,7 +65,7 @@ export const Dashboard = () => {
               <Hammer size={18} />
             </div>
             <span className="text-xl font-display font-extrabold tracking-tighter text-slate-900">
-              Pro<span className="text-brand-primary">Link</span>
+              Work<span className="text-brand-primary">India</span>
             </span>
           </Link>
         </div>
@@ -96,6 +96,7 @@ export const Dashboard = () => {
         <div className="p-6 border-t border-slate-100/40">
           <Link
             to="/"
+            onClick={logout}
             className="w-full flex items-center gap-4 px-6 py-3.5 rounded-2xl font-bold text-[13px] text-red-500 hover:bg-red-50 transition-all"
           >
             <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center">
@@ -135,7 +136,7 @@ export const Dashboard = () => {
               <div className="flex items-center gap-4 pl-6 border-l border-slate-200/60">
                 <div className="relative group cursor-pointer">
                   <img
-                    src={`https://picsum.photos/seed/prolink-${displayName.replace(/\s/g, '')}-profile/100/100`}
+                    src={`https://picsum.photos/seed/workindia-${displayName.replace(/\s/g, '')}-profile/100/100`}
                     alt="Profile"
                     className="w-12 h-12 rounded-2xl border-2 border-white shadow-lg group-hover:scale-105 transition-transform"
                     referrerPolicy="no-referrer"
@@ -301,7 +302,7 @@ export const Dashboard = () => {
                   <div className="px-10 pb-10">
                     <div className="relative -mt-20 mb-8">
                       <img
-                        src="https://picsum.photos/seed/prolink-alex-profile/200/200"
+                        src={`https://picsum.photos/seed/workindia-${displayName.replace(/\s/g, '')}-profile/200/200`}
                         alt="Profile"
                         className="w-40 h-40 rounded-[2.5rem] border-8 border-white shadow-xl"
                         referrerPolicy="no-referrer"

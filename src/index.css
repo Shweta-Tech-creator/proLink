@@ -6,9 +6,9 @@
   --font-display: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
-  --color-brand-primary: #6366f1; /* Indigo 500 */
-  --color-brand-secondary: #4f46e5; /* Indigo 600 */
-  --color-brand-accent: #8b5cf6; /* Violet 500 */
+  --color-brand-primary: #10b981; /* Emerald 500 */
+  --color-brand-secondary: #059669; /* Emerald 600 */
+  --color-brand-accent: #06b6d4; /* Cyan 500 */
 }
 
 @layer base {

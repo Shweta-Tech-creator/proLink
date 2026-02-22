@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Hammer, User, LogIn, ChevronRight } from 'lucide-react';
+import { Menu, X, Hammer, User, LogIn, ChevronRight, LayoutDashboard } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/src/lib/utils';
+import { useUser } from '../contexts/UserContext';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { user } = useUser();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,20 +35,20 @@ export const Navbar = () => {
         isScrolled ? 'pt-6' : 'pt-8'
       )}
     >
-      <div 
+      <div
         className={cn(
           "max-w-[1800px] mx-auto flex items-center justify-between transition-all duration-500",
-          isScrolled 
-            ? "bg-black/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] px-8 py-3 shadow-3xl" 
+          isScrolled
+            ? "bg-black/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] px-8 py-3 shadow-3xl"
             : "bg-transparent py-2 px-0"
         )}
       >
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-primary/20 group-hover:rotate-12 transition-transform duration-500">
-            <Hammer size={20} />
+          <div className="w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-primary/20 group-hover:rotate-12 transition-transform duration-500">
+            <Hammer size={24} />
           </div>
-          <span className="text-xl font-display font-extrabold tracking-tighter text-white">
-            Pro<span className="text-brand-primary">Link</span>
+          <span className="text-3xl font-display font-extrabold tracking-tighter text-white">
+            Work<span className="text-brand-primary">India</span>
           </span>
         </Link>
 
@@ -70,18 +72,30 @@ export const Navbar = () => {
             <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Support</span>
             <span className="text-xs font-bold text-white tracking-tight">+91 98765 43210</span>
           </div>
-          <Link
-            to="/login"
-            className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 hover:text-white transition-colors"
-          >
-            Sign In
-          </Link>
-          <Link
-            to="/register"
-            className="px-8 py-3.5 bg-brand-primary text-white rounded-full text-[10px] font-black uppercase tracking-[0.4em] shadow-xl shadow-brand-primary/20 hover:bg-brand-secondary hover:-translate-y-1 transition-all active:scale-95"
-          >
-            Register
-          </Link>
+          {user ? (
+            <Link
+              to="/dashboard"
+              className="px-8 py-3.5 bg-brand-primary text-white rounded-full text-[10px] font-black uppercase tracking-[0.4em] shadow-xl shadow-brand-primary/20 hover:bg-brand-secondary hover:-translate-y-1 transition-all active:scale-95 flex items-center gap-2"
+            >
+              <LayoutDashboard size={14} />
+              Dashboard
+            </Link>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 hover:text-white transition-colors"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/register"
+                className="px-8 py-3.5 bg-brand-primary text-white rounded-full text-[10px] font-black uppercase tracking-[0.4em] shadow-xl shadow-brand-primary/20 hover:bg-brand-secondary hover:-translate-y-1 transition-all active:scale-95"
+              >
+                Register
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Toggle */}
@@ -114,21 +128,35 @@ export const Navbar = () => {
                 </a>
               ))}
               <div className="h-px bg-white/5 my-4 mx-8" />
-              <Link
-                to="/login"
-                className="flex items-center gap-2 px-8 py-5 text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 hover:text-white rounded-2xl transition-all"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Sign In
-              </Link>
-              <Link
-                to="/register"
-                className="flex items-center justify-center gap-2 px-8 py-6 bg-brand-primary text-white rounded-3xl text-[10px] font-black uppercase tracking-[0.4em] shadow-xl shadow-brand-primary/20 active:scale-95 transition-all"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Register
-                <ChevronRight size={14} />
-              </Link>
+              {user ? (
+                <Link
+                  to="/dashboard"
+                  className="flex items-center justify-center gap-2 px-8 py-6 bg-brand-primary text-white rounded-3xl text-[10px] font-black uppercase tracking-[0.4em] shadow-xl shadow-brand-primary/20 active:scale-95 transition-all"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <LayoutDashboard size={14} />
+                  Go to Dashboard
+                  <ChevronRight size={14} />
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="flex items-center gap-2 px-8 py-5 text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 hover:text-white rounded-2xl transition-all"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="flex items-center justify-center gap-2 px-8 py-6 bg-brand-primary text-white rounded-3xl text-[10px] font-black uppercase tracking-[0.4em] shadow-xl shadow-brand-primary/20 active:scale-95 transition-all"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Register
+                    <ChevronRight size={14} />
+                  </Link>
+                </>
+              )}
             </div>
           </motion.div>
         )}

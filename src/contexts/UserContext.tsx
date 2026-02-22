@@ -17,14 +17,19 @@ interface UserContextType {
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<UserData | null>(null);
+  const [user, setUser] = useState<UserData | null>(() => {
+    const saved = localStorage.getItem('workindia_user');
+    return saved ? JSON.parse(saved) : null;
+  });
 
   const login = (data: UserData) => {
     setUser(data);
+    localStorage.setItem('workindia_user', JSON.stringify(data));
   };
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('workindia_user');
   };
 
   return (
